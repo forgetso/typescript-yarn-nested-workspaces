@@ -30,11 +30,18 @@ yarn workspace @demo/package2 add @demo/package1
 ➤ YN0000: Done in 0s 120ms
 ```
 
-This works without issues as `package1` and `package2` are in the same workspace.
+This works without issues as `package1` and `package2` are in the same workspace. We end up with the following in
+`@demo/package2`'s `package.json`:
+
+```json
+  "dependencies" : {
+    "@demo/package1" : "workspace:^"
+  }
+```
 
 ## Installing a package as a dependency of another package from another workspace
 
-Installing `@demo/package1` into `@demo/package3` does not work as it reaches out to the registry instead of looking locally.
+Installing `@demo/package1` into `@demo/package3` **does not work** as it reaches out to the registry instead of looking locally.
 
 ```bash
 yarn workspace @demo/package3 add @demo/package1
