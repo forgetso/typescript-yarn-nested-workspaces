@@ -1,6 +1,7 @@
 # Setup for nested workspaces using typescript
 
-The demo structure is 
+I was banging my head against a wall dealing with `Cannot find module` errors when manually adding nested workspace
+dependencies to my TypeScript project so I decided to create a basic demo to work it out. The demo structure is:
 
 ```bash
 ---- typescript-nested-workspaces (name:typescript-nested-workspaces)
