@@ -2,6 +2,7 @@
 
 The demo structure is 
 
+```bash
 ---- typescript-nested-workspaces (name:typescript-nested-workspaces)
 -------- workspace1 (name:@demo/workspace1)
 ------------ packages
@@ -9,6 +10,7 @@ The demo structure is
 ---------------- package2 (name:@demo/package2)
 -------- workspace2 (@demo/workspace2)
 ---------------- package3 (name:@demo/package3)
+```
 
 Run the command `yarn` from the root to install the dependencies.
 
