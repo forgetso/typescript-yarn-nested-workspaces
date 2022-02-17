@@ -85,7 +85,7 @@ yarn workspaces foreach run build
 
 ```
 
-##Cross-workspace call
+## Cross-workspace call
 
 Running the script in `@demo/package3` [successfully calls `@demo/package1`](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/ecc6dd4980b50c4f5aad6b277e3d7840deb19b97/packages/workspace2/packages/package3/src/index.ts#L1):
 
