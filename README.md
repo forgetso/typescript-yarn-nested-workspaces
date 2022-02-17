@@ -95,5 +95,9 @@ this is package 3 calling package 1
 this is package 1
 ```
 
+## Notes
+
 The references in the `tsconfig.json` files were added automatically using `yarn fix-typescript-references` from the
 root directory. This makes use of the package [`@goldstack/utils-typescript-references`](https://github.com/goldstack/goldstack/tree/master/workspaces/templates-lib/packages/utils-typescript-references#usage).
+
+For a more complete example of this setup, see [polkadot-js/api](https://github.com/polkadot-js/api).
