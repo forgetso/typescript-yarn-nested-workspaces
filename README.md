@@ -12,6 +12,14 @@ dependencies to my TypeScript project so I decided to create a basic demo to wor
 -------- workspace2 (@demo/workspace2)
 ---------------- package3 (name:@demo/package3)
 ```
+Set the version of `yarn` to stable. This equated to `3.1.1` at the time of writing:
+
+```bash
+yarn set version stable          
+➤ YN0000: Retrieving https://repo.yarnpkg.com/3.1.1/packages/yarnpkg-cli/bin/yarn.js
+➤ YN0000: Saving the new release in .yarn/releases/yarn-3.1.1.cjs
+➤ YN0000: Done in 0s 815ms
+```
 
 Run the command `yarn` from the root to install the dependencies.
 
@@ -110,4 +118,5 @@ this is package 1
 - The references in the `tsconfig.json` files were added automatically using `yarn fix-typescript-references` from the
 root directory. This makes use of the package [`@goldstack/utils-typescript-references`](https://github.com/goldstack/goldstack/tree/master/workspaces/templates-lib/packages/utils-typescript-references#usage).
 - For a more complete example of this setup, see [polkadot-js/api](https://github.com/polkadot-js/api).
+- Make sure you're running an up to date version of `yarn` by running `yarn set version stable`  
 - If you get an error running `yarn workspaces foreach` add the plugin `yarn plugin import workspace-tools`
