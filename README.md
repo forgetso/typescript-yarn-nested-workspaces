@@ -75,7 +75,7 @@ yarn workspace @demo/package3 add @demo/package1
 
 This was resolved by adding [paths](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/ecc6dd4980b50c4f5aad6b277e3d7840deb19b97/tsconfig.json#L7-L40)
 and [references](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/ecc6dd4980b50c4f5aad6b277e3d7840deb19b97/tsconfig.json#L48-L69)
-to the `tsconfig.json` at the root of the project. The `tsconfig.json` in `@demo/package3` then inherits this `tsconfig`
+to the `tsconfig.json` at the root of the project. The `tsconfig.json` in `@demo/package3` then [inherits](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/6a8a0668cfffcb8f79f3a2e5d8bfe97f33c2d883/packages/workspace2/packages/package3/tsconfig.json#L2) this `tsconfig`
 so that it knows where to look for `@demo/package1`. Clearly, this is not an ideal solution as you have an independent
 package relying on a foreign root `tsconfig.json`. However, it will work for development purposes.
 
