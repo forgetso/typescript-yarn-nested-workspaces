@@ -53,7 +53,7 @@ package relying on a foreign root `tsconfig.json`. However, it will work for dev
 
 ## Building all workspaces
 
-Now all projects can be built from root using
+Now all projects can be built from the root directory using
 
 `yarn workspaces foreach run build`
 
