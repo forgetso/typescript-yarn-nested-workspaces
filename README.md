@@ -12,6 +12,9 @@ dependencies to my TypeScript project so I decided to create a basic demo to wor
 -------- workspace2 (@demo/workspace2)
 ---------------- package3 (name:@demo/package3)
 ```
+
+## Prerequisites
+
 Set the version of `yarn` to stable. This equated to `3.1.1` at the time of writing:
 
 ```bash
@@ -19,6 +22,15 @@ yarn set version stable
 ➤ YN0000: Retrieving https://repo.yarnpkg.com/3.1.1/packages/yarnpkg-cli/bin/yarn.js
 ➤ YN0000: Saving the new release in .yarn/releases/yarn-3.1.1.cjs
 ➤ YN0000: Done in 0s 815ms
+```
+
+Add the `workspace-tools` plugin:
+
+```bash
+yarn plugin import workspace-tools 
+➤ YN0000: Downloading https://github.com/yarnpkg/berry/raw/@yarnpkg/cli/3.1.1/packages/plugin-workspace-tools/bin/%40yarnpkg/plugin-workspace-tools.js
+➤ YN0000: Saving the new plugin in .yarn/plugins/@yarnpkg/plugin-workspace-tools.cjs
+➤ YN0000: Done in 0s 348ms
 ```
 
 Run the command `yarn` from the root to install the dependencies.
