@@ -1,0 +1,20 @@
+{
+  "name": "@demo/package3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/src/index.js",
+  "scripts": {
+    "build": "tsc -b --verbose",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cross-workspace-call": "node ./build/src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@demo/package1": "workspace:packages/workspace1/packages/package1"
+  }
+}

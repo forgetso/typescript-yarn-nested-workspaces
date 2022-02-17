@@ -1,0 +1,70 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@demo/workspace1": [
+        "packages/workspace1/src"
+      ],
+      "@demo/workspace1/*": [
+        "packages/workspace1/src/*"
+      ],
+      "@demo/workspace2": [
+        "packages/workspace2/src"
+      ],
+      "@demo/workspace2/*": [
+        "packages/workspace2/src/*"
+      ],
+      "@demo/package1": [
+        "packages/workspace1/packages/package1/src"
+      ],
+      "@demo/package1/*": [
+        "packages/workspace1/packages/package1/src/*"
+      ],
+      "@demo/package2": [
+        "packages/workspace1/packages/package2/src"
+      ],
+      "@demo/package2/*": [
+        "packages/workspace1/packages/package2/src/*"
+      ],
+      "@demo/package3": [
+        "packages/workspace1/packages/package3/src"
+      ],
+      "@demo/package3/*": [
+        "packages/workspace1/packages/package3/src/*"
+      ]
+    }
+  },
+  "include": [
+    "packages/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "references": [
+    {
+      "path": "packages/workspace1",
+      "name": "@demo/workspace1"
+    },
+    {
+      "path": "packages/workspace1/packages/package1",
+      "name": "@demo/package1"
+    },
+    {
+      "path": "packages/workspace1/packages/package2",
+      "name": "@demo/package2"
+    },
+    {
+      "path": "packages/workspace2",
+      "name": "@demo/workspace2"
+    },
+    {
+      "path": "packages/workspace2/packages/package3",
+      "name": "@demo/package3"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "../../../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "rootDir": ".",
+    "outDir": "./build"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "references": [
+    {
+      "path": "../../../workspace1/packages/package1"
+    }
+  ],
+  "baseUrl": ".",
+  "paths": {
+    "@demo/package1": "../../workspace1/packages/package1/src"
+  }
+}
