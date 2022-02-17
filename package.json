@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fix-typescript-references": "utils-typescript-references"
+    "fix-typescript-references": "utils-typescript-references",
+    "build": "yarn workspaces foreach run build"
   },
   "keywords": [],
   "author": "",

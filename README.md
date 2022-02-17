@@ -65,6 +65,8 @@ Now all projects can be built from the root directory using
 
 `yarn workspaces foreach run build`
 
+> Note: If you get an error running `yarn workspaces foreach` add the plugin `yarn plugin import workspace-tools`
+
 ```bash
 yarn workspaces foreach run build
 ➤ YN0000: command not found: tsc
@@ -108,3 +110,4 @@ this is package 1
 - The references in the `tsconfig.json` files were added automatically using `yarn fix-typescript-references` from the
 root directory. This makes use of the package [`@goldstack/utils-typescript-references`](https://github.com/goldstack/goldstack/tree/master/workspaces/templates-lib/packages/utils-typescript-references#usage).
 - For a more complete example of this setup, see [polkadot-js/api](https://github.com/polkadot-js/api).
+- If you get an error running `yarn workspaces foreach` add the plugin `yarn plugin import workspace-tools`
