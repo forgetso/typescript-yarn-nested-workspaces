@@ -51,6 +51,8 @@ to the `tsconfig.json` at the root of the project. The `tsconfig.json` in `@demo
 so that it knows where to look for `@demo/package1`. Clearly, this is not an ideal solution as you have an independent
 package relying on a foreign root `tsconfig.json`. However, it will work for development purposes.
 
+## Building all workspaces
+
 Now all projects can be built from root using
 
 `yarn workspaces foreach run build`
