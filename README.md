@@ -73,10 +73,13 @@ yarn workspace @demo/package3 add @demo/package1
 
 ```
 
-This error can be resolved by deleting all of the `.yarnrc` files that occur in the individual workspaces, as helpfully
-pointed out by [this comment](https://github.com/yarnpkg/yarn/pull/6151#issuecomment-1046506013. As soon as you get rid
-of these, you can add `package1` to `package3` and the typescript build works without requiring additional paths or
-references at the individual package level.
+This error can be resolved by deleting all of the `.yarn` folders that occur in the individual workspaces, as helpfully
+pointed out by [this comment](https://github.com/yarnpkg/yarn/pull/6151#issuecomment-1046506013.
+
+> It's only working if there is only one .yarn folder inside the root folder.
+
+As soon as you get rid of these, you can add `package1` to `package3` and the typescript build works without requiring
+additional paths or references at the individual package level.
 
 ```bash
 yarn workspace @demo/package3 add @demo/package1
