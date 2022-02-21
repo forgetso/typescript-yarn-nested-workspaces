@@ -73,47 +73,70 @@ yarn workspace @demo/package3 add @demo/package1
 
 ```
 
-This was resolved by adding [paths](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/ecc6dd4980b50c4f5aad6b277e3d7840deb19b97/tsconfig.json#L7-L40)
-and [references](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/ecc6dd4980b50c4f5aad6b277e3d7840deb19b97/tsconfig.json#L48-L69)
-to the `tsconfig.json` at the root of the project. The `tsconfig.json` in `@demo/package3` then [inherits](https://github.com/forgetso/typescript-yarn-nested-workspaces/blob/6a8a0668cfffcb8f79f3a2e5d8bfe97f33c2d883/packages/workspace2/packages/package3/tsconfig.json#L2) the root `tsconfig.json`
-so that it knows where to look for `@demo/package1`. Clearly, this is not an ideal solution as you have an independent
-package relying on a foreign root `tsconfig.json`. However, it will work for development purposes.
+This error can be resolved by deleting all of the `.yarnrc` files that occur in the individual workspaces, as helpfully
+pointed out by [this comment](https://github.com/yarnpkg/yarn/pull/6151#issuecomment-1046506013. As soon as you get rid
+of these, you can add `package1` to `package3` and the typescript build works without requiring additional paths or
+references at the individual package level.
 
-## Building all workspaces
-
-Now all projects can be built from the root directory using
-
-`yarn workspaces foreach run build`
-
-> Note: If you get an error running `yarn workspaces foreach` add the plugin `yarn plugin import workspace-tools`
+```bash
+yarn workspace @demo/package3 add @demo/package1
+➤ YN0000: ┌ Resolution step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Fetch step
+➤ YN0000: └ Completed
+➤ YN0000: ┌ Link step
+➤ YN0000: └ Completed
+➤ YN0000: Done in 0s 269ms
+```
 
 ```bash
 yarn workspaces foreach run build
+➤ YN0000: ➤ YN0000: command not found: tsc
+➤ YN0000: ➤ YN0000: 14:50:58 - Projects in this build: 
+➤ YN0000: ➤ YN0000:     * tsconfig.json
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:58 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:59 - Projects in this build: 
+➤ YN0000: ➤ YN0000:     * ../package1/tsconfig.json
+➤ YN0000: ➤ YN0000:     * tsconfig.json
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:59 - Project '../package1/tsconfig.json' is up to date because newest input '../package1/src/index.ts' is older than oldest output '../package1/build/src/index.js'
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:59 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:59 - Projects in this build: 
+➤ YN0000: ➤ YN0000:     * tsconfig.json
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:59 - Project 'tsconfig.json' is out of date because output file 'build/src/index.js' does not exist
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: 14:50:59 - Building project '/home/user/dev/typescript-nested-workspaces/packages/workspace2/packages/package3/tsconfig.json'...
+➤ YN0000: ➤ YN0000: 
+➤ YN0000: ➤ YN0000: Done in 2s 901ms
 ➤ YN0000: command not found: tsc
-➤ YN0000: 13:20:12 - Projects in this build: 
+➤ YN0000: 14:51:01 - Projects in this build: 
 ➤ YN0000:     * tsconfig.json
 ➤ YN0000: 
-➤ YN0000: 13:20:12 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
+➤ YN0000: 14:51:01 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
 ➤ YN0000: 
-➤ YN0000: 13:20:12 - Projects in this build: 
+➤ YN0000: 14:51:02 - Projects in this build: 
 ➤ YN0000:     * ../package1/tsconfig.json
 ➤ YN0000:     * tsconfig.json
 ➤ YN0000: 
-➤ YN0000: 13:20:12 - Project '../package1/tsconfig.json' is up to date because newest input '../package1/src/index.ts' is older than oldest output '../package1/build/src/index.js'
+➤ YN0000: 14:51:02 - Project '../package1/tsconfig.json' is up to date because newest input '../package1/src/index.ts' is older than oldest output '../package1/build/src/index.js'
 ➤ YN0000: 
-➤ YN0000: 13:20:12 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
+➤ YN0000: 14:51:02 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
 ➤ YN0000: 
-➤ YN0000: 13:20:13 - Projects in this build: 
-➤ YN0000:     * ../../../workspace1/packages/package1/tsconfig.json
+➤ YN0000: 14:51:02 - Projects in this build: 
 ➤ YN0000:     * tsconfig.json
 ➤ YN0000: 
-➤ YN0000: 13:20:13 - Project '../../../workspace1/packages/package1/tsconfig.json' is up to date because newest input '../../../workspace1/packages/package1/src/index.ts' is older than oldest output '../../../workspace1/packages/package1/build/src/index.js'
+➤ YN0000: 14:51:02 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
 ➤ YN0000: 
-➤ YN0000: 13:20:13 - Project 'tsconfig.json' is up to date because newest input 'src/index.ts' is older than oldest output 'build/src/index.js'
-➤ YN0000: 
-➤ YN0000: Done in 0s 930ms
+➤ YN0000: Done in 4s 500ms
 
 ```
+
+And then never run any `yarn` commands from within the nested packages. Always run `yarn` from root.
 
 ## Cross-workspace call
 
@@ -127,8 +150,5 @@ this is package 1
 
 ## Notes
 
-- The references in the `tsconfig.json` files were added automatically using `yarn fix-typescript-references` from the
-root directory. This makes use of the package [`@goldstack/utils-typescript-references`](https://github.com/goldstack/goldstack/tree/master/workspaces/templates-lib/packages/utils-typescript-references#usage).
-- For a more complete example of this setup, see [polkadot-js/api](https://github.com/polkadot-js/api).
 - Make sure you're running an up to date version of `yarn` by running `yarn set version stable`  
 - If you get an error running `yarn workspaces foreach` add the plugin `yarn plugin import workspace-tools`

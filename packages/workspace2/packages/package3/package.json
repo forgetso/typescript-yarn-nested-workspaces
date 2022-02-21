@@ -15,6 +15,6 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "@demo/package1": "workspace:packages/workspace1/packages/package1"
+    "@demo/package1": "workspace:^"
   }
 }

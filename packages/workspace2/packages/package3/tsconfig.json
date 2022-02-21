@@ -1,5 +1,4 @@
 {
-  "extends": "../../../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
     "sourceMap": true,
@@ -13,13 +12,5 @@
     "node_modules",
     "**/*.spec.ts"
   ],
-  "references": [
-    {
-      "path": "../../../workspace1/packages/package1"
-    }
-  ],
   "baseUrl": ".",
-  "paths": {
-    "@demo/package1": "../../workspace1/packages/package1/src"
-  }
 }

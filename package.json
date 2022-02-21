@@ -13,10 +13,8 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "packages/*",
-    "packages/workspace1/packages/package1",
-    "packages/workspace1/packages/package2",
-    "packages/workspace2/packages/package3"
+    "packages/workspace1",
+    "packages/workspace2"
   ],
   "packageManager": "yarn@3.1.1",
   "devDependencies": {
