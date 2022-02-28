@@ -74,7 +74,7 @@ yarn workspace @demo/package3 add @demo/package1
 ```
 
 This error can be resolved by deleting all of the `.yarn` folders that occur in the individual workspaces, as helpfully
-pointed out by [this comment](https://github.com/yarnpkg/yarn/pull/6151#issuecomment-1046506013.
+pointed out by [this comment](https://github.com/yarnpkg/yarn/pull/6151#issuecomment-1046506013).
 
 > It's only working if there is only one .yarn folder inside the root folder.
 
